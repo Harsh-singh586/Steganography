@@ -9,7 +9,7 @@ if enc_dec == "1":
    text=input("Enter text to be encrypted only 100 character allowed:")
    j=len(text)
    if os.path.exists(image)==True:
-      f = open("insta1.png","rb")
+      f = open(image,"rb")
       l = f.read()+text.encode()
       f.close()
       f1 = open("enc.png","wb")
