@@ -5,6 +5,8 @@ enc_dec = input("Enter 1 to encrypt\nEnter 2 to decrypt\n")
 if enc_dec == "1": 
    image_loc = input("Enter location of image:")
    image_name = input("Enter image name:")
+   img_type = image_name.split(".")[-1]
+   upload_to = 'enc.'+img_type
    image = image_loc+"/"+image_name
    text=input("Enter text to be encrypted only 100 character allowed:")
    j=len(text)
@@ -12,7 +14,7 @@ if enc_dec == "1":
       f = open(image,"rb")
       l = f.read()+text.encode()
       f.close()
-      f1 = open("enc.png","wb")
+      f1 = open(upload_to,"wb")
       if j==100:
          f1.write(l)
       if j<100:
@@ -23,7 +25,7 @@ if enc_dec == "1":
       if j>100:
          print(Fore.RED+"Text can be greater than 100 characters")
       f1.close()      
-      print(Fore.GREEN+"Image Encoded successfull New image file is enc.png")
+      print(Fore.GREEN+"Image Encoded successfull New image file is enc."+img_type)
    else:
       print(Fore.RED+"NO SUCH IMAGE EXIST")
 if enc_dec=="2":
